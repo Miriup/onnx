@@ -88,6 +88,11 @@ if(CMAKE_SYSTEM_NAME STREQUAL "AIX")
   set(CMAKE_NO_SYSTEM_FROM_IMPORTED 1)
 endif()
 
+# Build the libraries with -fPIC including the protobuf lib.
+if(NOT DEFINED CMAKE_POSITION_INDEPENDENT_CODE)
+  set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+endif()
+
 if(ONNX_BUILD_TESTS)
   list(APPEND CMAKE_MODULE_PATH ${ONNX_ROOT}/cmake/external)
   include(googletest)
