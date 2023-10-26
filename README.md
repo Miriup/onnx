@@ -64,9 +64,16 @@ You will need an install of Protobuf and NumPy to build ONNX.  One easy
 way to get these dependencies is via
 [Anaconda](https://www.anaconda.com/download/):
 
-```
-# Use conda-forge protobuf, as default doesn't come with protoc
-conda install -c conda-forge protobuf numpy
+c++17 or higher C++ compiler version is required to build ONNX from source. Still, users can specify their own `CMAKE_CXX_STANDARD` version for building ONNX.
+
+If you don't have protobuf installed, ONNX will internally download and build protobuf for ONNX build.
+
+Or, you can manually install [protobuf C/C++ libraries and tools](https://github.com/protocolbuffers/protobuf) with specified version before proceeding forward. Then depending on how you installed protobuf, you need to set environment variable CMAKE_ARGS to "-DONNX_USE_PROTOBUF_SHARED_LIBS=ON" or "-DONNX_USE_PROTOBUF_SHARED_LIBS=OFF".  For example, you may need to run the following command:
+
+Linux:
+
+```sh
+export CMAKE_ARGS="-DONNX_USE_PROTOBUF_SHARED_LIBS=ON"
 ```
 
 You can then install ONNX from PyPi (Note: Set environment variable `ONNX_ML=1` for onnx-ml):

@@ -52,10 +52,11 @@ endif()
   endif()
 endif()
 
-# Set C++11 as standard for the whole project
-if(NOT MSVC)
-  set(CMAKE_CXX_STANDARD 11)
-endif(NOT MSVC)
+if(NOT DEFINED CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 17)
+endif()
+
+include(GNUInstallDirs)
 
 set(ONNX_ROOT ${PROJECT_SOURCE_DIR})
 
