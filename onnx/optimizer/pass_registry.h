@@ -29,6 +29,7 @@
 #include "onnx/optimizer/passes/split.h"
 #include "onnx/proto_utils.h"
 
+#include <map>
 #include <unordered_set>
 #include <vector>
 
